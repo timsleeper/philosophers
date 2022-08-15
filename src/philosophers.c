@@ -14,12 +14,23 @@
 
 void	take_forks(t_philos *philos)
 {
-	pthread_mutex_lock(&philos->params->forks_mutex[philos->left_fork]);
-	if (is_alive(philos->params) == 0)
-		print_msg(philos, FORK);
-	pthread_mutex_lock(&philos->params->forks_mutex[philos->right_fork]);
-	if (is_alive(philos->params) == 0)
-		print_msg(philos, FORK);
+    if (philos->id % 2)
+    {
+        pthread_mutex_lock(&philos->params->forks_mutex[philos->left_fork]);
+        if (is_alive(philos->params) == 0)
+            print_msg(philos, FORK);
+        pthread_mutex_lock(&philos->params->forks_mutex[philos->right_fork]);
+        if (is_alive(philos->params) == 0)
+            print_msg(philos, FORK);
+    }
+    else {
+        pthread_mutex_lock(&philos->params->forks_mutex[philos->right_fork]);
+        if (is_alive(philos->params) == 0)
+            print_msg(philos, FORK);
+        pthread_mutex_lock(&philos->params->forks_mutex[philos->left_fork]);
+        if (is_alive(philos->params) == 0)
+            print_msg(philos, FORK);
+    }
 }
 
 void	*one_philo(t_philos *philos)
