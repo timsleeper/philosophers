@@ -6,7 +6,7 @@
 /*   By: felipe.tadeu <felipe.tadeu@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:28:28 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/15 13:01:16 by felipe.tade      ###   ########.fr       */
+/*   Updated: 2022/08/15 13:08:49 by felipe.tade      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,15 @@ char	*ft_itoa(int n)
 
 int	ft_atoi(const char *str)
 {
-	int c;
-	int s;
-	int res;
+	int	c;
+	int	s;
+	int	res;
 
 	c = 0;
 	s = 1;
 	res = 0;
-	while (str[c] == ' ' || str[c] == '\n' || str[c] == '\t' ||
-			str[c] == '\v' || str[c] == '\f' || str[c] == '\r')
+	while (str[c] == ' ' || str[c] == '\n' || str[c] == '\t'
+		|| str[c] == '\v' || str[c] == '\f' || str[c] == '\r')
 		c++;
 	if (str[c] == '-' || str[c] == '+')
 	{
@@ -88,7 +88,7 @@ int	ft_atoi(const char *str)
 	return (res * s);
 }
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	if (n == 0)
 		return (0);
@@ -101,9 +101,9 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-size_t		ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s && s[i] != '\0')
