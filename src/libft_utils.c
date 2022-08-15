@@ -6,7 +6,7 @@
 /*   By: felipe.tadeu <felipe.tadeu@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:28:28 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/15 13:08:49 by felipe.tade      ###   ########.fr       */
+/*   Updated: 2022/08/15 13:10:32 by felipe.tade      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,13 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return (0);
 	n += 1;
 	while (--n != 0)
+	{
 		if (*s1 != *s2++)
 			return (*(unsigned char *)s1 - *(unsigned char *)--s2);
 		else if (*s1++ == 0)
 			break ;
+	}
+		
 	return (0);
 }
 
