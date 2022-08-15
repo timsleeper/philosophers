@@ -6,7 +6,7 @@
 /*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 20:01:35 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/14 22:34:42 by ftadeu-d         ###   ########.fr       */
+/*   Updated: 2022/08/14 23:27:22 by ftadeu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	init_philosophers(t_params *params)
 	{
 		if (pthread_create(&params->pthreads[i], NULL, &philosophers, &params->philos[i]) != 0)
 			return(error_thread(params, i, "Error creating thread\n"));
+		i++;
 	}
 	if (pthread_create(&params->control, NULL, &monitor, params) != 0)
 		return (error_thread(params, i, "Error creating thread\n"));

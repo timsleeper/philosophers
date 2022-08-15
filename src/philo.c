@@ -6,7 +6,7 @@
 /*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:12:46 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/14 23:19:58 by ftadeu-d         ###   ########.fr       */
+/*   Updated: 2022/08/14 23:27:24 by ftadeu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int validate_input(int argc, char **argv, t_params *params)
 			return(error_msg("Error: Number of meals must be a positive integer\n"));
 	}
 	if (params->num_philos < 1 || params->time_to_eat < 0 || params->time_to_sleep < 0 || params->time_to_die < 0 || (argc == 6 && params->num_meals < 1))
-		error_msg(USAGE_ERROR);
+		return(error_msg(USAGE_ERROR));
 	return (0);
 }
 
