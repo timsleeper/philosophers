@@ -6,7 +6,7 @@
 /*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 20:40:07 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/14 23:01:36 by ftadeu-d         ###   ########.fr       */
+/*   Updated: 2022/08/14 23:41:22 by ftadeu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void *monitor(void *arg)
 				return (stuffed(params, i));
 			i++;
 		}	
-		usleep(7000);
+		usleep(300);
 	}
 	return (NULL);
 }

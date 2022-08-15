@@ -6,7 +6,7 @@
 /*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:12:46 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/14 23:27:24 by ftadeu-d         ###   ########.fr       */
+/*   Updated: 2022/08/14 23:43:49 by ftadeu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ static int validate_input(int argc, char **argv, t_params *params)
 		return(error_msg(USAGE_ERROR));
 	if (validate_digit(argv[1], &params->num_philos) == 1)
 		return(error_msg("Error: Number of philosophers must be a positive integer\n"));
-	if (validate_digit(argv[2], &params->time_to_eat) == 1)
+	if (validate_digit(argv[3], &params->time_to_eat) == 1)
 		return(error_msg("Error: Time to eat must be a positive integer\n"));
-	if (validate_digit(argv[3], &params->time_to_sleep) == 1)
+	if (validate_digit(argv[4], &params->time_to_sleep) == 1)
 		return(error_msg("Error: Time to sleep must be a positive integer\n"));
-	if (validate_digit(argv[4], &params->time_to_die) == 1)
+	if (validate_digit(argv[2], &params->time_to_die) == 1)
 		return(error_msg("Error: Time to die must be a positive integer\n"));
 	params->num_meals = -1;
 	if (argc == 6)
