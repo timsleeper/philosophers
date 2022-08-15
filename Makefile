@@ -36,7 +36,7 @@ ${NAME}: $(OBJS)
 	$(CC) $(MORE_FLAGS) $(OBJS) -o ${NAME}
 
 clean:
-	$(RM) ${NAME} $(OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) -f ${NAME} $(OBJS)

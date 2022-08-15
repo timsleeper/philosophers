@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: felipe.tadeu <felipe.tadeu@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:28:28 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/15 00:19:19 by ftadeu-d         ###   ########.fr       */
+/*   Updated: 2022/08/15 13:01:16 by felipe.tade      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,28 @@ int	ft_count_nbr_len(int n)
 
 char	*ft_itoa(int n)
 {
-	char			*str;
-	int				size;
-	unsigned int	nbr;
-	int				neg;
+	char		*str;
+	int			i;
+	long long	a;
 
-	neg = 0;
-	size = ft_count_nbr_len(n);
-	str = (char *)malloc(sizeof(char) * (size + 1))
+	a = (long long)n;
+	i = ft_count_nbr_len(a);
+	str = (char *)malloc(sizeof(char) * (i + 1));
 	if (!(str))
-		return (0);
-	str[size] = '\0';
-	nbr = n;
-	if (n < 0)
+		return (NULL);
+	str[i] = '\0';
+	if (a == 0)
+		str[0] = 48;
+	if (a < 0)
 	{
 		str[0] = '-';
-		nbr = -n;
-		neg = 1;
+		a = a * -1;
 	}
-	size--;
-	while (size >= (neg ? 1 : 0))
+	while (a > 0)
 	{
-		str[size] = nbr % 10 + '0';
-		nbr /= 10;
-		size--;
+		str[i - 1] = a % 10 + 48;
+		a = a / 10;
+		i--;
 	}
 	return (str);
 }
