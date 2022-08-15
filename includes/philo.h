@@ -6,7 +6,7 @@
 /*   By: felipe.tadeu <felipe.tadeu@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:13:43 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/15 13:18:03 by felipe.tade      ###   ########.fr       */
+/*   Updated: 2022/08/15 13:19:09 by felipe.tade      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-# include <limits.h>
 # include <pthread.h>
 # include <stddef.h>
 # include <sys/time.h>
