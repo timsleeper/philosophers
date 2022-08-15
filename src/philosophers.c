@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: felipe.tadeu <felipe.tadeu@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 20:10:17 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/15 00:39:00 by ftadeu-d         ###   ########.fr       */
+/*   Updated: 2022/08/15 14:20:51 by felipe.tade      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 void	take_forks(t_philos *philos)
 {
-    if (philos->id % 2)
-    {
-        pthread_mutex_lock(&philos->params->forks_mutex[philos->left_fork]);
-        if (is_alive(philos->params) == 0)
-            print_msg(philos, FORK);
-        pthread_mutex_lock(&philos->params->forks_mutex[philos->right_fork]);
-        if (is_alive(philos->params) == 0)
-            print_msg(philos, FORK);
-    }
-    else {
-        pthread_mutex_lock(&philos->params->forks_mutex[philos->right_fork]);
-        if (is_alive(philos->params) == 0)
-            print_msg(philos, FORK);
-        pthread_mutex_lock(&philos->params->forks_mutex[philos->left_fork]);
-        if (is_alive(philos->params) == 0)
-            print_msg(philos, FORK);
-    }
+	if (philos->id % 2)
+	{
+		pthread_mutex_lock(&philos->params->forks_mutex[philos->left_fork]);
+		if (is_alive(philos->params) == 0)
+			print_msg(philos, FORK);
+		pthread_mutex_lock(&philos->params->forks_mutex[philos->right_fork]);
+		if (is_alive(philos->params) == 0)
+			print_msg(philos, FORK);
+	}
+	else {
+		pthread_mutex_lock(&philos->params->forks_mutex[philos->right_fork]);
+		if (is_alive(philos->params) == 0)
+			print_msg(philos, FORK);
+		pthread_mutex_lock(&philos->params->forks_mutex[philos->left_fork]);
+		if (is_alive(philos->params) == 0)
+			print_msg(philos, FORK);
+	}
 }
 
 void	*one_philo(t_philos *philos)
