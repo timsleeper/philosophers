@@ -6,13 +6,13 @@
 /*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 20:48:30 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/14 22:35:31 by ftadeu-d         ###   ########.fr       */
+/*   Updated: 2022/08/15 00:22:27 by ftadeu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int start_eating(t_philos *philos)
+int	start_eating(t_philos *philos)
 {
 	pthread_mutex_lock(&philos->meal_mutex);
 	philos->last_meal_time = (int)get_total_time(philos);
@@ -30,7 +30,7 @@ int start_eating(t_philos *philos)
 	return (0);
 }
 
-void start_sleeping(t_philos *philos)
+void	start_sleeping(t_philos *philos)
 {
 	if (is_alive(philos->params) == 0)
 	{
@@ -39,7 +39,7 @@ void start_sleeping(t_philos *philos)
 	}
 }
 
-void start_thinking(t_philos *philos)
+void	start_thinking(t_philos *philos)
 {
 	if (is_alive(philos->params) == 0)
 	{

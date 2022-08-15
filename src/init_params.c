@@ -6,13 +6,13 @@
 /*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:57:23 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/14 22:39:10 by ftadeu-d         ###   ########.fr       */
+/*   Updated: 2022/08/15 00:24:48 by ftadeu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-static void get_forks(t_params *params, int i)
+static void	get_forks(t_params *params, int i)
 {
 	params->philos[i].left_fork = params->philos[i].id;
 	params->philos[i].right_fork = params->philos[i].id - 1;
@@ -20,9 +20,9 @@ static void get_forks(t_params *params, int i)
 		params->philos[i].right_fork = params->num_philos - 1;
 }
 
-static int init_philos(t_params *params)
+static int	init_philos(t_params *params)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < params->num_philos)
@@ -38,10 +38,10 @@ static int init_philos(t_params *params)
 	return (0);
 }
 
-
-static int		init_mutex(t_params *params)
+static int	init_mutex(t_params *params)
 {
 	int				i;
+
 	i = 0;
 	while (i < params->num_philos)
 	{
@@ -62,7 +62,7 @@ static int		init_mutex(t_params *params)
 	return (0);
 }
 
-static int		alloc_memory(t_params *params)
+static int	alloc_memory(t_params *params)
 {
 	params->philos = malloc(sizeof(t_philos) * params->num_philos);
 	params->forks_mutex = malloc(sizeof(pthread_mutex_t) * params->num_philos);
@@ -72,9 +72,7 @@ static int		alloc_memory(t_params *params)
 	return (0);
 }
 
-
-
-int		init_params(t_params *params)
+int	init_params(t_params *params)
 {
 	if (alloc_memory(params) == 1)
 		return (1);
@@ -87,5 +85,3 @@ int		init_params(t_params *params)
 		return (error_time(params, "Error: gettimeofday failed\n"));
 	return (0);
 }
-
-

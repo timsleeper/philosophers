@@ -6,15 +6,15 @@
 /*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 19:44:45 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/14 22:36:07 by ftadeu-d         ###   ########.fr       */
+/*   Updated: 2022/08/15 00:23:13 by ftadeu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void kill_mutex(t_params *params)
+void	kill_mutex(t_params *params)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < params->num_philos)
@@ -39,7 +39,7 @@ void	free_mem(t_params *params)
 		free(params->pthreads);
 }
 
-void free_all(t_params *params)
+void	free_all(t_params *params)
 {
 	kill_mutex(params);
 	free_mem(params);

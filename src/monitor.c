@@ -6,15 +6,15 @@
 /*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 20:40:07 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/14 23:41:22 by ftadeu-d         ###   ########.fr       */
+/*   Updated: 2022/08/15 00:32:25 by ftadeu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int is_alive(t_params *params)
+int	is_alive(t_params *params)
 {
-	int dead;
+	int	dead;
 
 	dead = 0;
 	pthread_mutex_lock(&params->dead_mutex);
@@ -24,21 +24,22 @@ int is_alive(t_params *params)
 	return (dead);
 }
 
-static int check_stuffed(t_philos *philos)
+static int	check_stuffed(t_philos *philos)
 {
-	int eat;
+	int	eat;
 
 	eat = 0;
 	pthread_mutex_lock(&philos->local_dead_mutex);
 	pthread_mutex_lock(&philos->meal_mutex);
-	if ((int)get_total_time(philos) - philos->last_meal_time >= philos->params->time_to_die)
+	if ((int)get_total_time(philos) - philos->last_meal_time
+		>= philos->params->time_to_die)
 		eat = 1;
 	pthread_mutex_unlock(&philos->meal_mutex);
 	pthread_mutex_unlock(&philos->local_dead_mutex);
 	return (eat);
 }
 
-void *stuffed(t_params *params, int i)
+void	*stuffed(t_params *params, int i)
 {
 	pthread_mutex_lock(&params->dead_mutex);
 	params->dead_philos = 1;
@@ -47,9 +48,9 @@ void *stuffed(t_params *params, int i)
 	return (NULL);
 }
 
-int check_status(t_philos *philos)
+int	check_status(t_philos *philos)
 {
-	int status;
+	int	status;
 
 	status = 0;
 	pthread_mutex_lock(&philos->status_mutex);
@@ -59,12 +60,11 @@ int check_status(t_philos *philos)
 	return (status);
 }
 
-
-void *monitor(void *arg)
+void	*monitor(void *arg)
 {
-	t_params *params;
-	int i;
-	int num_dead;
+	t_params	*params;
+	int			i;
+	int			num_dead;
 
 	params = (t_params *)arg;
 	num_dead = 0;
@@ -73,12 +73,14 @@ void *monitor(void *arg)
 		i = 0;
 		while (i < params->num_philos && num_dead != params->num_philos)
 		{
-			if (check_status(&params->philos[i]) == 1 && check_stuffed(&params->philos[i]) == 0)
+			if (check_status(&params->philos[i]) == 1
+				&& check_stuffed(&params->philos[i]) == 0)
 			{
 				if (++num_dead == params->num_philos)
-					return (NULL) ;
+					return (NULL);
 			}
-			if (check_status(&params->philos[i]) == 0 && check_stuffed(&params->philos[i]) == 1)
+			if (check_status(&params->philos[i]) == 0
+				&& check_stuffed(&params->philos[i]) == 1)
 				return (stuffed(params, i));
 			i++;
 		}	

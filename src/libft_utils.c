@@ -6,21 +6,21 @@
 /*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:28:28 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/14 23:16:15 by ftadeu-d         ###   ########.fr       */
+/*   Updated: 2022/08/15 00:19:19 by ftadeu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int		ft_count_nbr_len(int n)
+int	ft_count_nbr_len(int n)
 {
 	int				count;
 	unsigned int	nbr;
 
-	if (n == 0)
-		return (1);
 	count = 0;
 	nbr = n;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		count++;
@@ -43,7 +43,8 @@ char	*ft_itoa(int n)
 
 	neg = 0;
 	size = ft_count_nbr_len(n);
-	if (!(str = (char *)malloc(sizeof(char) * (size + 1))))
+	str = (char *)malloc(sizeof(char) * (size + 1))
+	if (!(str))
 		return (0);
 	str[size] = '\0';
 	nbr = n;
