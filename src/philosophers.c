@@ -6,7 +6,7 @@
 /*   By: felipe.tadeu <felipe.tadeu@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 20:10:17 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/15 14:21:43 by felipe.tade      ###   ########.fr       */
+/*   Updated: 2022/08/15 14:22:36 by felipe.tade      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	take_forks(t_philos *philos)
 		if (is_alive(philos->params) == 0)
 			print_msg(philos, FORK);
 	}
-	else {
+	else
+	{
 		pthread_mutex_lock(&philos->params->forks_mutex[philos->right_fork]);
 		if (is_alive(philos->params) == 0)
 			print_msg(philos, FORK);
