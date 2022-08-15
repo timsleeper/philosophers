@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: felipe.tadeu <felipe.tadeu@student.42.f    +#+  +:+       +#+        */
+/*   By: ftadeu-d <ftadeu-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 20:10:17 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/15 14:22:36 by felipe.tade      ###   ########.fr       */
+/*   Updated: 2022/08/15 19:20:23 by ftadeu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	take_forks(t_philos *philos)
 {
+	usleep(750);
 	if (philos->id % 2)
 	{
 		pthread_mutex_lock(&philos->params->forks_mutex[philos->left_fork]);
