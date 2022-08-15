@@ -6,7 +6,7 @@
 /*   By: felipe.tadeu <felipe.tadeu@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:13:43 by ftadeu-d          #+#    #+#             */
-/*   Updated: 2022/08/15 13:15:38 by felipe.tade      ###   ########.fr       */
+/*   Updated: 2022/08/15 13:18:03 by felipe.tade      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ enum	e_msg
 typedef struct s_philos
 {
 	int				id;
-	int  			eat_count;
+	int				eat_count;
 	int				last_meal_time;
 	int				left_fork;
 	int				right_fork;
-	pthread_mutex_t status_mutex;
-	pthread_mutex_t meal_mutex;
-	pthread_mutex_t local_dead_mutex;
+	pthread_mutex_t	status_mutex;
+	pthread_mutex_t	meal_mutex;
+	pthread_mutex_t	local_dead_mutex;
 	int				status;
 	struct s_params	*params;
 }				t_philos;
@@ -60,7 +60,7 @@ typedef struct s_params
 	pthread_mutex_t		print_mutex;
 	int					dead_philos;
 	pthread_t			control;
-	pthread_mutex_t 	dead_mutex;
+	pthread_mutex_t		dead_mutex;
 	t_philos			*philos;
 }				t_params;
 
@@ -86,7 +86,7 @@ void			free_all(t_params *params);
 
 void			take_forks(t_philos *philos);
 void			*one_philo(t_philos *philos);
-void			*philosophers (void *arg);
+void			*philosophers(void *arg);
 
 int				start_eating(t_philos *philos);
 void			start_sleeping(t_philos *philos);
